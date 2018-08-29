@@ -1,0 +1,16 @@
+# application.properties/yml会继承bootstrap.properties/yml属性
+eureka:
+  client:
+    service-url:
+       defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}.${server.port}
+    prefer-ip-address: true
+
+
+info:
+  application.name: ${spring.application.name}
+  version: 1.0-SNAPSHOT
+  coder:
+    name: Lijq
+    email: ly_0199@163.com

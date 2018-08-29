@@ -9,17 +9,69 @@
 
 - [Spring Cloud Finchley.SR1](http://cloud.spring.io/spring-cloud-static/Finchley.SR1/single/spring-cloud.html)
 
-# 
-
 # Modules
 
 ## xp-portal
 
-> 访问门户。
+> 访问门户
 
-- 门户首页
-- 路由 `spring-cloud-starter-netflix-zuul`
-- 
+### 路由配置
+
+1. pom.xml
+
+   ``` xml
+   <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+   </dependency>
+   ```
+
+2. 开启配置
+
+   ``` java
+   @EnableZuulProxy
+   ```
+
+3. 配置文件
+
+   ``` yaml
+   # zuul.routes.${app-name} = /${app-url-prefix}/**
+   zuul:
+     ignored-services: "*"
+     routes:
+       xp-user-provider:
+         path: /api/**
+         serviceId: xp-user-provider
+   ```
+
+
+## xp-user-provider
+
+> 用户服务
+
+
+
+
+
+
+
+# Dependency 依赖
+
+## Eureka
+
+>
+
+## Ribbon
+
+> 基于`客户端`的`负载均衡`组件
+
+## Feign
+
+## Hystrix
+
+## Zuul
+
+## Config
 
 
 

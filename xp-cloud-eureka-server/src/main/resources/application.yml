@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: xp-cloud-eureka-server
+
+server:
+  port: 8761
+
+eureka:
+  server:
+    enable-self-preservation: false # 取消自我保护机制
+    eviction-interval-timer-in-ms: 30000 # 服务失效驱逐时间
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false # 取消自我注册
+    fetchRegistry: false # 自己注册自己不需要检索
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+info:
+  application.name: ${spring.application.name}
+  version: ${project.version}
+  coder:
+    name: Lijq
+    email: ly_0199@163.com
